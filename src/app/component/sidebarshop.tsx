@@ -1,11 +1,26 @@
 "use client";
 import React from "react";
-import { useForm } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
+
+// Define form data type
+interface ShopFilterForm {
+  electronic: boolean;
+  sport: boolean;
+  "home&garden": boolean;
+  fashion: boolean;
+  priceUnder50: boolean;
+  price50to100: boolean;
+  price100to200: boolean;
+  price200to500: boolean;
+  priceAbove500: boolean;
+}
 
 export default function ShopSideBar() {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit } = useForm<ShopFilterForm>();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit: SubmitHandler<ShopFilterForm> = (data) => {
+    console.log(data);
+  };
 
   return (
     <div className="inline-block border border-gray-200 rounded p-4">
@@ -32,27 +47,22 @@ export default function ShopSideBar() {
         </div>
         <div>
           <h2 className="font-medium">Price Range</h2>
-
           <label className="flex items-center gap-2">
             <input type="checkbox" {...register("priceUnder50")} />
             Under $50
           </label>
-
           <label className="flex items-center gap-2">
             <input type="checkbox" {...register("price50to100")} />
             $50 - $100
           </label>
-
           <label className="flex items-center gap-2">
             <input type="checkbox" {...register("price100to200")} />
             $100 - $200
           </label>
-
           <label className="flex items-center gap-2">
             <input type="checkbox" {...register("price200to500")} />
             $200 - $500
           </label>
-
           <label className="flex items-center gap-2">
             <input type="checkbox" {...register("priceAbove500")} />
             Above $500
