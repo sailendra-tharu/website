@@ -8,7 +8,6 @@ interface ProductCardProps {
   reviews: number;
   price: number;
   oldPrice?: number;
-  image?: string;
 }
 
 export default function ShopCard({
@@ -19,7 +18,6 @@ export default function ShopCard({
   reviews,
   price,
   oldPrice,
-  image,
 }: ProductCardProps) {
   return (
     <div className="w-full rounded-2xl border bg-white shadow-sm overflow-hidden">
