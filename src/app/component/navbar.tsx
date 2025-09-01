@@ -17,11 +17,19 @@ export default function Navbar() {
 
   const item: Variants = {
     hidden: { opacity: 0, y: -20 },
-    show: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { type: "spring" as const, stiffness: 120 } 
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { type: "spring" as const, stiffness: 120 },
     },
+  };
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget as HTMLFormElement);
+    const query = formData.get("search") as string;
+    console.log("Searching for:", query);
+    // 👉 Here you can trigger real search logic
   };
 
   return (
@@ -44,7 +52,7 @@ export default function Navbar() {
           transition={{ type: "spring", stiffness: 150 }}
           className="w-6 h-6 bg-black rounded-sm"
         ></motion.div>
-        <span className="text-lg font-semibold">ShopCo</span>
+        <span className="text-lg font-semibold">MissCo</span>
       </motion.div>
 
       {/* Menu Links */}
@@ -67,19 +75,34 @@ export default function Navbar() {
         ))}
       </motion.div>
 
-      {/* Icons */}
+      {/* Icons + Search Field */}
       <motion.div
         variants={container}
         initial="hidden"
         animate="show"
         className="flex items-center space-x-5"
       >
-        <motion.div variants={item} whileHover={{ scale: 1.2 }}>
-          <Search className="w-5 h-5 cursor-pointer hover:text-black" />
-        </motion.div>
+        {/* Search always visible */}
+        <motion.form
+          onSubmit={handleSearch}
+          variants={item}
+          className="flex items-center space-x-2 border border-gray-300 rounded px-2 py-1"
+        >
+          <input
+            name="search"
+            type="text"
+            placeholder="Search..."
+            className="outline-none text-sm w-32 md:w-48"
+          />
+          <button type="submit">
+            <Search className="w-5 h-5 text-gray-600 hover:text-black cursor-pointer" />
+          </button>
+        </motion.form>
+
         <motion.div variants={item} whileHover={{ scale: 1.2 }}>
           <User className="w-5 h-5 cursor-pointer hover:text-black" />
         </motion.div>
+
         <motion.div
           variants={item}
           whileHover={{ scale: 1.2 }}
