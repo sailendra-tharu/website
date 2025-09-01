@@ -17,7 +17,7 @@ export default function Discover() {
   }, []);
 
   return (
-    <section className="bg-gray-50 flex items-center justify-center">
+    <section className="bg-orange-300 flex items-center justify-center">
       <div className="container mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center gap-10 mt-5 mb-5">
         {/* Left Content */}
         <motion.div
@@ -89,7 +89,7 @@ export default function Discover() {
 
         {/* Right Image Slider */}
         <div className="flex-1 flex justify-center">
-          <div className="w-[600px] h-[350px] rounded-lg overflow-hidden relative">
+          <div className="w-[700px] h-[350px] rounded-lg overflow-hidden relative">
             {images.map((src, index) => (
               <div
                 key={index}

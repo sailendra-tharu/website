@@ -34,7 +34,7 @@ export default function Footer() {
               whileHover={{ rotate: 90, scale: 1.1 }}
               transition={{ type: "spring" }}
             />
-            <h2 className="text-lg font-semibold">ShopCo</h2>
+            <h2 className="text-lg font-semibold">MissCo</h2>
           </div>
           <p className="text-sm text-gray-600 mb-4">
             Your trusted online shopping destination for quality products and
@@ -122,7 +122,7 @@ export default function Footer() {
         className="mt-12 border-t border-gray-200 pt-6 text-center text-sm text-gray-500"
         variants={item}
       >
-        © 2025 ShopCo. All rights reserved.
+        © 2025 MissCo. All rights reserved.
       </motion.div>
     </motion.footer>
   );
