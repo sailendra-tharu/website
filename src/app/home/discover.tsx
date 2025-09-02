@@ -2,19 +2,39 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 
 const images = ["/shoe.jpg", "/Bag.webp", "/pant.webp", "/Tshirt.webp"];
 
+// Define a type for direction
+type Direction = 1 | -1;
+
 export default function Discover() {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [direction, setDirection] = useState<Direction>(1); // only 1 or -1
 
   useEffect(() => {
     const interval = setInterval(() => {
+      setDirection(1);
       setCurrentIndex((prev) => (prev + 1) % images.length);
     }, 3000);
     return () => clearInterval(interval);
   }, []);
+
+  const variants: Variants = {
+    enter: (direction: Direction) => ({
+      x: direction > 0 ? 700 : -700,
+      opacity: 1,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+    },
+    exit: (direction: Direction) => ({
+      x: direction > 0 ? -700 : 700,
+      opacity: 1,
+    }),
+  };
 
   return (
     <section className="bg-orange-300 flex items-center justify-center">
@@ -26,7 +46,6 @@ export default function Discover() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          {/* Heading */}
           <motion.h1
             className="text-4xl font-bold text-gray-900 mb-4"
             initial={{ opacity: 0, y: 20 }}
@@ -36,7 +55,6 @@ export default function Discover() {
             Discover Your Perfect Style
           </motion.h1>
 
-          {/* Paragraph */}
           <motion.p
             className="text-gray-600 mb-6 max-w-md mx-auto md:mx-0"
             initial={{ opacity: 0, y: 20 }}
@@ -47,7 +65,6 @@ export default function Discover() {
             Quality products at unbeatable prices.
           </motion.p>
 
-          {/* Buttons with bounce animation */}
           <motion.div
             className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
             initial={{ opacity: 0, y: 20 }}
@@ -76,7 +93,7 @@ export default function Discover() {
                 repeat: Infinity,
                 repeatType: "loop",
                 ease: "easeInOut",
-                delay: 0.5, // offset so they bounce alternately
+                delay: 0.5,
               }}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
@@ -90,22 +107,26 @@ export default function Discover() {
         {/* Right Image Slider */}
         <div className="flex-1 flex justify-center">
           <div className="w-[700px] h-[350px] rounded-lg overflow-hidden relative">
-            {images.map((src, index) => (
-              <div
-                key={index}
-                className={`absolute top-0 left-0 w-full h-full transition-opacity duration-1000 ${
-                  index === currentIndex ? "opacity-100" : "opacity-0"
-                }`}
+            <AnimatePresence initial={false} custom={direction}>
+              <motion.div
+                key={currentIndex}
+                custom={direction}
+                variants={variants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{ type: "tween", duration: 0.8 }}
+                className="absolute top-0 left-0 w-full h-full"
               >
                 <Image
-                  src={src}
-                  alt={`Hero ${index + 1}`}
-                  width={600}
+                  src={images[currentIndex]}
+                  alt={`Hero ${currentIndex + 1}`}
+                  width={700}
                   height={350}
                   className="object-cover w-full h-full"
                 />
-              </div>
-            ))}
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
       </div>
