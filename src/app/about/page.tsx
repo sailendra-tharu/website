@@ -1,3 +1,4 @@
+
 "use client";
 
 export default function About() {
@@ -45,11 +46,11 @@ export default function About() {
                 What started as a simple idea in 2018 has evolved into a
                 revolutionary platform that connects millions of customers with
                 premium products worldwide. Our founders believed that
-                exceptional quality shouldn&apos;t be a luxury—it should be
+                exceptional quality shouldn't be a luxury—it should be
                 accessible to everyone.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                Today, we&apos;re proud to serve over 2 million customers across 50
+                Today, we're proud to serve over 2 million customers across 50
                 countries, maintaining the same commitment to excellence that
                 drove us from day one.
               </p>
@@ -93,7 +94,7 @@ export default function About() {
               { icon: "🚀", title: "Innovation First", desc: "We constantly push boundaries and embrace new technologies." },
               { icon: "💎", title: "Premium Quality", desc: "Every product we offer meets our rigorous quality standards." },
               { icon: "🤝", title: "Customer Obsession", desc: "Your satisfaction drives everything we do." },
-              { icon: "🌱", title: "Sustainability", desc: "We&apos;re committed to responsible business practices." },
+              { icon: "🌱", title: "Sustainability", desc: "We’re committed to responsible business practices." },
               { icon: "⚡", title: "Speed & Efficiency", desc: "Fast delivery and streamlined processes make shopping easy." },
               { icon: "🔒", title: "Trust & Security", desc: "Your data and transactions are protected." },
             ].map((val, i) => (
