@@ -1,4 +1,3 @@
-
 "use client";
 
 import { motion } from "framer-motion";
@@ -26,12 +25,45 @@ export default function Contact() {
   return (
     <main className="overflow-x-hidden bg-gray-50 text-gray-900">
       {/* Hero Section */}
-      <section className="relative flex min-h-[60vh] items-center justify-center bg-gradient-to-br from-indigo-500 to-purple-600 text-white">
+      <section className="relative flex min-h-[60vh] items-center justify-center bg-gradient-to-br from-indigo-500 to-purple-600 text-white overflow-hidden">
+        {/* Floating Bubbles */}
+        <div className="absolute inset-0 pointer-events-none">
+          <motion.div
+            initial={{ y: 0 }}
+            animate={{ y: [0, -50, 0] }} // bigger bounce
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }} // faster
+            className="absolute left-[10%] top-[20%] h-[100px] w-[100px] rounded-full bg-white/20"
+          />
+          <motion.div
+            initial={{ y: 0 }}
+            animate={{ y: [0, -60, 0] }}
+            transition={{
+              duration: 2.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 0.3,
+            }}
+            className="absolute right-[15%] top-[50%] h-[150px] w-[150px] rounded-full bg-white/20"
+          />
+          <motion.div
+            initial={{ y: 0 }}
+            animate={{ y: [0, -40, 0] }}
+            transition={{
+              duration: 1.8,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 0.6,
+            }}
+            className="absolute bottom-[15%] left-[20%] h-[80px] w-[80px] rounded-full bg-white/20"
+          />
+        </div>
+
+        {/* Hero Text */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center px-6"
+          className="relative z-10 text-center px-6"
         >
           <h1 className="text-5xl md:text-6xl font-bold">Contact Us</h1>
           <p className="mt-4 text-lg md:text-xl opacity-90">
@@ -201,9 +233,7 @@ export default function Contact() {
           transition={{ duration: 0.8 }}
           className="max-w-3xl mx-auto px-6"
         >
-          <h2 className="text-4xl font-bold mb-6">
-            Still Have Questions?
-          </h2>
+          <h2 className="text-4xl font-bold mb-6">Still Have Questions?</h2>
           <p className="text-lg mb-8 opacity-90">
             Reach out anytime — our team is ready to assist you.
           </p>
