@@ -81,17 +81,17 @@ export default function Contact() {
               {
                 icon: <Mail className="w-6 h-6 text-indigo-500" />,
                 title: "Email",
-                desc: "support@example.com",
+                desc: "sailendradas.tharu@gmail.com",
               },
               {
                 icon: <Phone className="w-6 h-6 text-indigo-500" />,
                 title: "Phone",
-                desc: "+1 (555) 123-4567",
+                desc: "+977 9766510990",
               },
               {
                 icon: <MapPin className="w-6 h-6 text-indigo-500" />,
                 title: "Office",
-                desc: "123 Innovation Drive, San Francisco, CA",
+                desc: "Kathamandu,Nepal",
               },
               {
                 icon: <Clock className="w-6 h-6 text-indigo-500" />,
@@ -205,7 +205,6 @@ export default function Contact() {
           </div>
         </div>
       </section>
-
       {/* Map Section */}
       <section className="relative h-[450px] w-full">
         <motion.div
@@ -217,7 +216,7 @@ export default function Contact() {
         >
           <iframe
             className="w-full h-full"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.0986586934823!2d-122.41941568468174!3d37.774929779759454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c7e8c6f4f%3A0x8f62f5f5a7bb7d9!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1694017200000!5m2!1sen!2sus"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.283580819868!2d85.31891147451426!3d27.701689982786247!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1900e484c6f5%3A0xf3e98b9c9f1f4a70!2sNew%20Road%2C%20Kathmandu%2C%20Nepal!5e0!3m2!1sen!2sus!4v1694017200000!5m2!1sen!2sus"
             allowFullScreen
             loading="lazy"
           ></iframe>
