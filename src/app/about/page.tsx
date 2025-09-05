@@ -1,7 +1,7 @@
 
 "use client";
 
-export default function AboutPage() {
+export default function About() {
   return (
     <main className="overflow-x-hidden text-gray-900">
       {/* Hero Section */}
